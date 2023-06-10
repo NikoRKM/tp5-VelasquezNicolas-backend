@@ -59,4 +59,9 @@ ticketCtrl.getTicketsEspectador = async (req, res) => {
     res.json(ticket);
 }
 
+ticketCtrl.getTicket = async (req, res) => {
+    var ticket = await Ticket.findById(req.params.id).populate("espectador");
+    res.json(ticket);
+}
+
 module.exports = ticketCtrl;
