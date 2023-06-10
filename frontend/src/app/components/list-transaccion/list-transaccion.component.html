@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row p-1">
+        <div class="col-12">
+            <h1 class="text-center">Transacciones</h1>
+        </div>
+    </div>
+    <div class="row g-1 justify-content-center mt-3">
+        <div class="col-12">
+            <h4 class="text-center">Filtrar</h4>
+            <div class="row">
+                <div class="col-4 text-center align-self-center">
+                    <button type="button" class="btn btn-primary" (click)="verTransacciones()">
+                        Ver Todo
+                    </button>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary" (click)="verTransaccionesCliente()">
+                            Ver por Email
+                        </button>
+                    </div>
+                    <div class="col-6 m-auto">
+                        <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary" (click)="verTransaccionesMoneda()">
+                            Ver por Monedas
+                        </button>
+                    </div>
+                    <div class="col-6 input-group">
+                        <div class="col-auto ms-auto">
+                            <select class="form-select" name="monedaOrigen" [(ngModel)]="monedaOrigen">
+                                <option value="" selected disabled>De</option>
+                                <option value="ARS">ARS</option>
+                                <option value="BRL">BRL</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
+                        <div class="col-auto me-auto">
+                            <select class="form-select" name="monedaDestino" [(ngModel)]="monedaDestino">
+                                <option value="" selected disabled>A</option>
+                                <option value="ARS">ARS</option>
+                                <option value="BRL">BRL</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover mt-3 text-center">
+                <thead>
+                    <tr>
+                        <th>Email Cliente</th>
+                        <th>Cantidad</th>
+                        <th>Moneda Origen</th>
+                        <th>Moneda Destino</th>
+                        <th>Total</th>
+                        <th>Tasa de Conversion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of transacciones">
+                        <td>{{t.emailCliente}}</td>
+                        <td>{{t.cantidadOrigen | number:'1.1-4'}}</td>
+                        <td>{{t.monedaOrigen}}</td>
+                        <td>{{t.monedaDestino}}</td>
+                        <td>{{t.cantidadDestino | number:'1.1-4'}}</td>
+                        <td>{{t.tasaConversion | number:'1.1-4'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

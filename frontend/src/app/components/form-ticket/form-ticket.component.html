@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row p-1">
+        <div class="col-12">
+            <h1 class="text-center" *ngIf="!modifica">Registrar Ticket</h1>
+            <h1 class="text-center" *ngIf="modifica">Modificar Ticket</h1>
+        </div>
+    </div>
+    <div class="row g-1 justify-content-center mt-3">
+        <div class="col-8">
+            <form class="mb-3">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese espectador</label>
+                    <select class="form-select" aria-label="Default select example" name="espectador" [(ngModel)]="ticket.espectador" required>
+                        <option value="" selected disabled>Seleccione un espectador</option>
+                        <option *ngFor="let e of espectadores" [ngValue]="e">{{e.apellido}}, {{e.nombre}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese categoria del Espectador</label>
+                    <select class="form-select" aria-label="Default select example" name="categoriaEspectador" [(ngModel)]="ticket.categoriaEspectador" required>
+                        <option value="" selected disabled>Seleccione una categoria</option>
+                        <option value="l">Local</option>
+                        <option value="e">Extranjero</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese precio del Ticket</label>
+                    <div class="input-group">
+                        <div class="input-group-text">$</div>
+                        <input type="number" class="form-control" name="precioTicket" [(ngModel)]="ticket.precioTicket" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Fecha de Compra</label>
+                    <label class="form-control">{{ticket.fechaCompra}}</label>
+                </div>
+                <div class="text-center" *ngIf="!modifica">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="guardarTicket()">
+                        Guardar
+                    </button>
+                </div>
+                <div class="text-center" *ngIf="modifica">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="modificarTicket()">
+                        Modificar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row p-1">
+        <div class="col-12">
+            <h1 class="text-center">Tickets</h1>
+        </div>
+    </div>
+    <div class="row g-1 justify-content-center mt-3">
+        <div class="col-12">
+            <h4 class="text-center">Filtrar por:</h4>
+            <div class="row">
+                <div class="input-group">
+                    <select class="form-select" aria-label="Default select example" name="categoria" [(ngModel)]="categoria" required>
+                        <option value="" selected>Todos</option>
+                        <option value="l">Local</option>
+                        <option value="e">Extranjero</option>
+                    </select>
+                    <button type="button" class="btn btn-success" (click)="verTicketsEspectador()">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover mt-3 text-center">
+                <thead>
+                    <tr>
+                        <th>DNI Espectador</th>
+                        <th>Nombre Espectador</th>
+                        <th>Apellido Espectador</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Fecha de Compra</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of tickets">
+                        <td>{{t.espectador.dni}}</td>
+                        <td>{{t.espectador.nombre}}</td>
+                        <td>{{t.espectador.apellido}}</td>
+                        <td>{{t.categoriaEspectador}}</td>
+                        <td>${{t.precioTicket | number:'1.1-4'}}</td>
+                        <td>{{t.fechaCompra}}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm" (click)="borrarTicket(t)">
+                                Borrar
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="modificarTicket(t)">
+                                Modificar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

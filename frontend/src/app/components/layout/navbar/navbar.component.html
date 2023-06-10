@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <img src="../../../../assets/img/logo_mp.png" alt="Logo" width="30" height="30"
+                class="d-inline-block align-text-top">
+            MiPagina
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Productos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['list-producto']" routerLinkActive="active">Ver Productos</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['form-producto']" routerLinkActive="active">Alta Producto</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Transacciones
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['form-transaccion']" routerLinkActive="active">Alta Transaccion</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['list-transaccion']" routerLinkActive="active">Ver Transacciones</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Tickets
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['list-ticket']" routerLinkActive="active">Ver Tickets</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['form-ticket/0']" routerLinkActive="active">Alta Ticket</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

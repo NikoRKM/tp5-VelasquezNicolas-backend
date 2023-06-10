@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row p-1">
+        <div class="col-12">
+            <h1 class="text-center">Registrar Transacciones</h1>
+        </div>
+    </div>
+    <div class="row g-1 justify-content-center mt-3">
+        <div class="col-8">
+            <form class="mb-3">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese Email</label>
+                    <input type="email" class="form-control" name="emailCliente" [(ngModel)]="transaccion.emailCliente" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese Cantidad</label>
+                    <div class="input-group">
+                        <div class="input-group-text">$</div>
+                        <input type="number" class="form-control" name="cantidadOrigen" [(ngModel)]="transaccion.cantidadOrigen" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">De:</label>
+                    <select class="form-select" name="monedaOrigen" [(ngModel)]="transaccion.monedaOrigen" required>
+                        <option value="" selected disabled>Seleccione una moneda...</option>
+                        <option value="ARS">ARS</option>
+                        <option value="BRL">BRL</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">A:</label>
+                    <select class="form-select" name="monedaDestino" [(ngModel)]="transaccion.monedaDestino" required>
+                        <option value="" selected disabled>Seleccione una moneda...</option>
+                        <option value="ARS">ARS</option>
+                        <option value="BRL">BRL</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Total:</label>
+                    <div class="input-group">
+                        <div class="input-group-text">$</div>
+                        <label class="form-control" name="cantidadDestino" disabled>{{transaccion.cantidadDestino | number:'1.1-4'}}</label>
+                    </div>
+                </div>
+                <div class="mb-3 text-center">
+                    <button type="button" class="btn btn-primary bg-warning text-dark m-auto" (click)="calcularTransaccion()">
+                        Convertir <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

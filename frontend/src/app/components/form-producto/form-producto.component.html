@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row p-1">
+        <div class="col-12">
+            <h1 class="text-center">Registrar Productos</h1>
+        </div>
+    </div>
+    <div class="row g-1 justify-content-center mt-3">
+        <div class="col-8">
+            <form class="mb-3">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese nombre del Producto</label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="producto.nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese descripcion del Producto</label>
+                    <input type="text" class="form-control" name="descripcion" [(ngModel)]="producto.descripcion" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese URL de imagen del Producto</label>
+                    <input type="text" class="form-control" name="imagen" [(ngModel)]="producto.imagen" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese precio del Producto</label>
+                    <div class="input-group">
+                        <div class="input-group-text">$</div>
+                        <input type="number" class="form-control" name="precio" [(ngModel)]="producto.precio" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese stock del Producto</label>
+                    <div class="input-group">
+                        <div class="input-group-text">#</div>
+                        <input type="number" class="form-control" name="stock" [(ngModel)]="producto.stock" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">El Producto es Destacado?</label>
+                    <select class="form-select" aria-label="Default select example" name="destacado" [(ngModel)]="producto.destacado" required>
+                        <option value="" selected disabled>Seleccione</option>
+                        <option value="false">No</option>
+                        <option value="true">Si</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="guardarProducto()">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
