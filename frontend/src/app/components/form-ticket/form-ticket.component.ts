@@ -23,10 +23,10 @@ export class FormTicketComponent implements OnInit {
 
   ngOnInit(): void {
     this.ticket.fechaCompra = String(new Date().toLocaleDateString('es-ar'));
-    this.cargarEspectadores();
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] == '0') {
         this.modifica = false;
+        this.cargarEspectadores();
       } else {
         this.modifica = true;
         this.obtenerTicket(params['id']);
@@ -34,7 +34,7 @@ export class FormTicketComponent implements OnInit {
     });
   }
 
-  cargarEspectadores() {
+  async cargarEspectadores() {
     this.espectadorService.getSpectators().subscribe(
       result => {
         console.log(result);
@@ -50,7 +50,8 @@ export class FormTicketComponent implements OnInit {
     this.router.navigate(['list-ticket']);
   }
 
-  obtenerTicket(id: string) {
+  async obtenerTicket(id: string) {
+    await this.cargarEspectadores();
     this.ticketService.getTicket(id).subscribe(
       result => {
         console.log(result);
